@@ -1,0 +1,158 @@
+CREATE TABLE temp_tpc_students(
+       stu_id INT PRIMARY KEY AUTO_INCREMENT,  
+       stu_email VARCHAR(30) NOT NULL,
+       stu_password VARCHAR(60) NOT NULL,
+       first_name VARCHAR(20) NOT NULL,
+       last_name VARCHAR(20),
+       father_name VARCHAR(30) NOT NULL,
+       mother_name VARCHAR(30) NOT NULL,       
+       dob DATE NOT NULL,
+       gender char(1) NOT NULL,
+       category VARCHAR(12) NOT NULL,
+       mobile INT(10) NOT NULL,        
+       rollno VARCHAR(9) NOT NULL UNIQUE,       
+       course VARCHAR(10) NOT NULL,
+       branch VARCHAR(10) NOT NULL,                     
+       semester VARCHAR(10) NOT NULL,
+       dept VARCHAR(30) NOT NULL, 
+       cgpa NUMERIC(5,2) NOT NULL,        
+       be_pass_year INT(4) NOT NULL,                                         
+       twelveth_marks NUMERIC(5,2) NOT NULL,
+       twelveth_year INT(4) NOT NULL,        
+       tenth_marks NUMERIC(5,2) NOT NULL,       
+       tenth_year INT(4) NOT NULL,                     
+       projects VARCHAR(150) NOT NULL,
+       certification VARCHAR(150), 
+       tech_used VARCHAR(100) NOT NULL,
+       internship_1 VARCHAR(100),
+       internship_2 VARCHAR(100) NOT NULL,
+       internship_3 VARCHAR(100) NOT NULL,              
+       address VARCHAR(120) NOT NULL,       
+       reappear  INT(1) default 0,
+       debarred  char(1) default 'N',       
+       email_verified  char(1) default 'N',
+       student_verified  char(1) default 'N',
+       hash VARCHAR(60) NOT NULL,
+       timestamp_email VARCHAR(30) NOT NULL
+);
+
+CREATE TABLE tpc_students(
+       stu_id INT PRIMARY KEY AUTO_INCREMENT,  
+       stu_email VARCHAR(30) NOT NULL,
+       stu_password VARCHAR(60) NOT NULL,
+       stu_designation VARCHAR(10) default 'student',           
+       first_name VARCHAR(20) NOT NULL,
+       last_name VARCHAR(20),
+       father_name VARCHAR(30) NOT NULL,
+       mother_name VARCHAR(30) NOT NULL,       
+       dob DATE NOT NULL,
+       gender char(1) NOT NULL,
+       category VARCHAR(12) NOT NULL,
+       mobile INT(10) NOT NULL,        
+       rollno VARCHAR(9) NOT NULL UNIQUE,       
+       course VARCHAR(10) NOT NULL,
+       branch VARCHAR(10) NOT NULL,                     
+       semester VARCHAR(10) NOT NULL,
+       dept VARCHAR(30) NOT NULL, 
+       cgpa NUMERIC(5,2) NOT NULL,        
+       be_pass_year INT(4) NOT NULL,                                         
+       twelveth_marks NUMERIC(5,2) NOT NULL,
+       twelveth_year INT(4) NOT NULL,        
+       tenth_marks NUMERIC(5,2) NOT NULL,       
+       tenth_year INT(4) NOT NULL,                     
+       projects VARCHAR(150) NOT NULL,
+       tech_used VARCHAR(100) NOT NULL,
+       certification VARCHAR(150),        
+       internship_1 VARCHAR(100),
+       internship_2 VARCHAR(100) NOT NULL,
+       internship_3 VARCHAR(100) NOT NULL,              
+       address VARCHAR(120) NOT NULL,       
+       reappear  INT(1) default 0,
+       email_verified  char(1) default 'N',
+       student_verified  char(1) default 'N',
+       debarred  char(1) default 'N',
+	   imagename VARCHAR(30),
+	   imagepath VARCHAR(100)
+);
+
+CREATE TABLE tpc_company(
+       comp_id INT NOT NULL AUTO_INCREMENT,   
+       c_ntid VARCHAR(12) NOT NULL,          
+       comp_name VARCHAR(30) NOT NULL,
+       comp_email VARCHAR(30) NOT NULL,
+       arrival_date DATE NOT NULL,             
+       branch_cse char(1) default 'Y',
+       branch_ece char(1) default 'Y',
+       branch_mech char(1) default 'Y',       
+       branch_it char(1) default 'Y',              
+       branch_eee char(1) default 'Y',
+       branch_bio char(1) default 'Y',	
+       type VARCHAR(30) NOT NULL,
+       package NUMERIC(10,2),
+       stipend NUMERIC(10),       
+       location VARCHAR(10) NOT NULL,       
+       min_qual VARCHAR(30) NOT NULL,                     
+       cgpa NUMERIC(4,2) NOT NULL,                           
+       twelveth_marks NUMERIC(5,2),       
+       tenth_marks NUMERIC(5,2),        
+       PRIMARY KEY ( comp_id )
+); 
+
+CREATE TABLE tpc_student_reg(
+       s_no INT NOT NULL AUTO_INCREMENT,      
+       student_id INT(5) NOT NULL,
+       company_id INT(5) NOT NULL,
+       placed CHAR(1) DEFAULT 'N',       
+       PRIMARY KEY ( s_no ),
+       FOREIGN KEY (student_id) REFERENCES tpc_students(stu_id),
+       FOREIGN KEY (company_id) REFERENCES tpc_company(comp_id)       
+); 
+
+CREATE TABLE tpc_predict_placement(
+       p_no INT NOT NULL AUTO_INCREMENT,
+       p_stu_id INT(5) NOT NULL,
+       proj_research BOOLEAN NOT NULL default 0,
+       proj_web_development BOOLEAN NOT NULL default 0,
+       proj_android_app BOOLEAN NOT NULL default 0,
+       proj_software_dev BOOLEAN NOT NULL default 0,
+       proj_others BOOLEAN NOT NULL default 0,
+       certi_linux BOOLEAN NOT NULL default 0,
+       certi_database BOOLEAN NOT NULL default 0,
+       certi_networking BOOLEAN NOT NULL default 0,
+       certi_soft_skills BOOLEAN NOT NULL default 0,
+       certi_others BOOLEAN NOT NULL default 0,
+       tech_c BOOLEAN NOT NULL default 0,
+       tech_cpp BOOLEAN NOT NULL default 0,
+       tech_java BOOLEAN NOT NULL default 0,
+       tech_android BOOLEAN NOT NULL default 0,
+       tech_python BOOLEAN NOT NULL default 0,
+       tech_front_end_dev BOOLEAN NOT NULL default 0,
+       tech_back_end_dev BOOLEAN NOT NULL default 0,
+       tech_sql BOOLEAN NOT NULL default 0,
+       tech_embedded_prog BOOLEAN NOT NULL default 0,
+       tech_matlab BOOLEAN NOT NULL default 0,
+       tech_r_prog BOOLEAN NOT NULL default 0,
+       tech_others BOOLEAN NOT NULL default 0,
+       summer_first_year BOOLEAN NULL,
+       summer_second_year BOOLEAN NOT NULL default 0,
+       summer_third_year BOOLEAN NOT NULL default 0,
+       PRIMARY KEY ( p_no ),
+       FOREIGN KEY (p_stu_id) REFERENCES tpc_students(stu_id),
+);
+
+CREATE TABLE tpc_clerk(
+       clerk_email VARCHAR(30) NOT NULL,
+       clerk_password VARCHAR(60) NOT NULL,
+       PRIMARY KEY ( clerk_email )
+); 
+
+CREATE TABLE tpc_admin(
+       admin_email VARCHAR(30) NOT NULL,
+       admin_password VARCHAR(60) NOT NULL,
+       PRIMARY KEY ( admin_email )
+); 
+
+INSERT INTO tpc_students VALUES (
+ 1,'inder@gmail.com','inder','student','inder','vash','inder1','inder2',02/01/1999,'M',9999999999,'ue133045','be','cse','eight','uiet',8.78,2017,89.3,2011,91,2013,
+	'abround 20','chandigarh',0,'N','N','N');
+	

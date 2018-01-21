@@ -1,0 +1,52 @@
+/* This Style sheet is for the Student Portal Only
+    For the Company/Convenor Portal we have separate Style Sheet
+    */
+
+table.text_center tr{
+ text-align:center;
+}
+table.text_center tr>th{
+ text-align:center;
+}
+.color_red{
+ color:#f00;/*red*/
+}
+.color_green{
+ color:green;
+}
+.color_blue{
+ color:blue;
+}
+.color_orange{
+ color:rgb(255, 135, 0);   
+}
+.color_brown{
+ color:#807800;
+}
+.color_pink{
+ color:rgb(255, 0, 216);   
+}
+/* index.php */
+div.margin_designation{
+ margin-left: 0 !important;
+ margin-right:0 !important;
+}
+/* index.php */
+
+/*c_particular_stu.php*/
+.reset{
+    display: inline-block;
+    background-color: #5CB5B8;
+    border-color: #1347FC;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+div.reset>a{
+    color: #fff;    
+}
+/* Ends c_particular_stu.php*/
+/**/
+img.placed_img{
+ max-height: 75px;   
+}
+/**/

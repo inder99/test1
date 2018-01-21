@@ -1,0 +1,31 @@
+INSERT INTO  `tpc`.`tpc_company` (
+`comp_id` ,
+`c_ntid` ,
+`comp_name` ,
+`comp_email` ,
+`arrival_date` ,
+`branch_cse` ,
+`branch_ece` ,
+`branch_mech` ,
+`branch_it` ,
+`branch_eee` ,
+`branch_bio` ,
+`type` ,
+`package` ,
+`stipend` ,
+`job_profile` ,
+`location` ,
+`min_qual` ,
+`cgpa` ,
+`twelveth_marks` ,
+`tenth_marks`
+)
+VALUES (
+'25',  'c_ascentx',  'Ascentx',  'ascentx@gmail.com',  '2016-01-02',  'Y',  'Y',  'Y',  'Y',  'Y',  'Y',  'core',  '6.00',  '15000',  'Software Engineer',  'Chandigarh',  'be',  '7',  '75.00',  '75.00'
+)
+
+
+
+
+INSERT INTO `tpc`.`temp_tpc_students` (`stu_id`, `stu_email`, `stu_password`, `first_name`, `last_name`, `father_name`, `mother_name`, `dob`, `gender`, `category`, `mobile`, `rollno`, `course`, `branch`, `semester`, `dept`, `cgpa`, `be_pass_year`, `twelveth_marks`, `twelveth_year`, `tenth_marks`, `tenth_year`, `projects`, `certification`, `tech_used`, `internship_1`, `internship_2`, `internship_3`, `address`, `reappear`, `debarred`, `email_verified`, `student_verified`, `hash`, `timestamp_email`, `proj_research`, `proj_web_development`, `proj_android_app`, `proj_software_dev`, `proj_others`, `certi_linux`, `certi_database`, `certi_networking`, `certi_soft_skills`, `certi_others`, `tech_c`, `tech_cpp`, `tech_java`, `tech_android`, `tech_python`, `tech_front_end_dev`, `tech_back_end_dev`, `tech_sql`, `tech_embedded_prog`, `tech_matlab`, `tech_r_prog`, `tech_others`, `summer_first_year`, `summer_second_year`, `summer_third_year`) VALUES ('15', 'vaishali@gmail.com', 'a2be57e304b28d61896695[...]
+

@@ -1,0 +1,15 @@
+CREATE EVENT IF NOT EXISTS `email_not_verified`
+  ON SCHEDULE
+    EVERY 1 DAY
+    STARTS '2014-04-30 00:20:00' ON COMPLETION PRESERVE ENABLE 
+    COMMENT 'Email Not Verified Clean up at 00:20:00!'
+    DO
+      DELETE FROM temp_tpc_students WHERE email_verified='N';
+    
+    
+CREATE EVENT my_event
+  ON SCHEDULE
+    EVERY 1 DAY
+    STARTS '2014-04-30 00:20:00' ON COMPLETION PRESERVE ENABLE 
+  DO
+    # My query    
